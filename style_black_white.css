@@ -56,7 +56,7 @@ footer
 {
     margin-top:5px;
     margin-bottom:5px;
-    margin-left:5%;
+    margin-left:2%;
     width:65%;
     height:50%;
     border:solid; 
@@ -70,4 +70,33 @@ footer
     width:10%;
     height:20%;
     border:solid; 
+}
+#image-box
+{
+
+    margin-top: 1%;
+    text-align:center;
+    text-justify:auto;
+}
+#texts
+{
+    margin-left:10px;
+    margin-bottom:10px;
+}
+#stop
+{
+    color:red;
+}
+#start
+{
+    color:green;
+}
+#google-maps
+{
+    margin-left:40%;
+    margin-bottom:1%;
+    width:500px;
+    text-align: center;
+    border:solid;
+
 }

@@ -46,16 +46,18 @@
                          }
                          else if (e.which == 52) {
                               var msg = new SpeechSynthesisUtterance();
-                                 msg.text = "Good Morning";
+                                 msg.text = "Dzień dobry";
                                  window.speechSynthesis.speak(msg);
                          }
                          else if (e.which == 48) {
                          alert("Powrót");
                          location.hash = "header";
                          }
-                    }
-                    
-                  
+                    }                  
+                  function stop()
+                  {
+                    window.speechSynthesis.cancel();
+                  }
 
            </script>
 
@@ -63,28 +65,29 @@
      </head>
      <body id="body">  
         <header id="header">
-            <h1>budynek i opisać jego ograniczenia architektoniczne</h1>
+            <h1>Ograniczenia Architektoniczne budynku Świetlicy Ogólnodostępnej</h1>
        </header>
        <section id="main">
        <section id="tool">
             <h1 id="tool_text">ToolBox</h1>
             <article id="colorchanger">
                     <h1> Wybierz swój kolor</h1>
-                    <button onclick="toggleTheme('style_black_yellow.css')">
+                    <button id="black-yellow" onclick="toggleTheme('style_black_yellow.css')">
                          Czarno-Żółty
                     </button>
 
-                    <button onclick="toggleTheme('style_yellow_black.css')">
+                    <button id="yellow-black" onclick="toggleTheme('style_yellow_black.css')">
                          Żółto-Czarny
                     </button>
 
-                    <button onclick="toggleTheme('style_black_white.css')">
+                    <button id="black-white" onclick="toggleTheme('style_black_white.css')">
                          Czarno-Biały
                     </button>
 
-                    <button onclick="toggleTheme('style_white_black.css')">
+                    <button id="white-black" onclick="toggleTheme('style_white_black.css')">
                          Biało-Czarny
                     </button>
+                    
 
                  </article>
           <article id="fontchanger">
@@ -95,144 +98,156 @@
           </article>
        </section>
        <section id="build">
-               <a>Będę tutaj </a>
-               <img id="myImg" src="img.jpg" width="250" height="250">
+               <section id="image-box">
+               <img id="myImg" src="img.png" width="300" height="300" alt="Zdjęcie przedstawia budynek Świetlicy Ogólnodostępnej w Dąbrowie Górniczej z wejściem osobowym"></br>
+               <a id="describe">Budynek świetlicy ogólnodostępnej w <br/>Dąbrowie Górniczej</a><br/>
+               <script>
+                    function textToAudio6() {
+                         msg = "Zdjęcie przedstawia budynek Świetlicy Ogólnodostępnej w Dąbrowie Górniczej z wejściem osobowym"
+                       
+                         let speech = new SpeechSynthesisUtterance();
+                         speech.lang = "pl-PL";
+                         
+                         speech.text = msg;
+                         speech.volume = 1;
+                         speech.rate = 1;
+                         speech.pitch = 1;
+                         
+                         window.speechSynthesis.speak(speech);
+                        }
+                    </script>
+                    <button id="start" type="button" onclick="textToAudio6()">Czytaj</button>
+                    <button id="stop" type="button" onclick="stop()">Stop</button>
+                </section>
+                <section id="texts">
                <a id="messeage">
-               Sosnowiec
-Przejdź do nawigacji
-Przejdź do wyszukiwania
-Województwo, w którym znajduje się Sosnowieś
+                    <h3>Świetlica ogólnodostępna w Dąbrowie Górniczej</h3>  
+                    Budynek nie ma żadnego oznakowania, które sugerowało by na pełnioną funkcje budynku. Każda osoba, która chciała by skorzystać ze świetlicy może mieć problem z zlokalizowaniem budynku, nie jest on w żaden sposób oznaczony, więcej trudności może to przysporzyć osobą starszym lub niedowidzącym.                
+               </a>
+               <script>
+               function textToAudio() {
+                    let msg = document.getElementById("messeage").text;
+                    let speech = new SpeechSynthesisUtterance();
+                    speech.lang = "pl-PL";
+                    
+                    speech.text = msg;
+                    speech.volume = 1;
+                    speech.rate = 1;
+                    speech.pitch = 1;
+                    
+                    window.speechSynthesis.speak(speech);
+                   }
+               </script>
+               <button id="start" type="button" onclick="textToAudio()">Czytaj</button>
+               <button id="stop" type="button" onclick="stop()">Stop</button>
+               <a id="messeage1">
+                    <h3>Wejście do budynku</h3>  
+                    Wejście do budynku jest wyposażone w dwie poręcze po stronie lewej i prawej, mogą one służyć do utrzymania równowagi podczas wchodzenia po schodach.
+                    Osoba na wózku inwalidzkim będzie miała problem z dostaniem się do budynku z racji na brak rampy podjazdowej do drzwi budynku. Wejście samemu do takiego budynku nie jest możliwe, wymagana jest pomoc drugiej osoby aby wejść do budynku.
+     
+               </a>
+               <script>
+                    function textToAudio() {
+                         let msg = document.getElementById("messeage1").text;
+                         let speech = new SpeechSynthesisUtterance();
+                         speech.lang = "pl-PL";
+                         
+                         speech.text = msg;
+                         speech.volume = 1;
+                         speech.rate = 1;
+                         speech.pitch = 1;
+                         
+                         window.speechSynthesis.speak(speech);
+                        }
+                    </script>
+                    <button id="start" type="button" onclick="textToAudio()">Czytaj</button>
+                    <button id="stop" type="button" onclick="stop()">Stop</button>
+               <a id="messeage2">
+                    <h3>Druga cześć terenu świetlicy</h3>  
+                    Przechodząc poza budynek możemy zobaczyć otwarty zielony teren na lekkim wzniesieniu do którego prowadzi ścieżka i betonowe schody. Przy schodach nie ma barierek umożliwiających bezpieczniejsze oraz łatwiejsze wchodzenie po schodach. Same schody są również krzywe oraz połamane co jeszcze bardziej utrudnia wchodzenie.
+                    Zabrakło również podjazdu dla wózków inwalidzkich, wejście na ten teren jest bardzo utrudnione.
+               </a>
+               <script>
+                    function textToAudio2() {
+                         let msg = document.getElementById("messeage2").text;
+                         let speech = new SpeechSynthesisUtterance();
+                         speech.lang = "pl-PL";
+                         
+                         speech.text = msg;
+                         speech.volume = 1;
+                         speech.rate = 1;
+                         speech.pitch = 1;
+                         
+                         window.speechSynthesis.speak(speech);
+                        }
+                    </script>
+                    <button id="start" type="button" onclick="textToAudio2()">Czytaj</button>
+                    <button id="stop" type="button" onclick="stop()">Stop</button>
+               <a id="messeage3">
+                    <h3>Brak windy</h3> 
+                    Budynek ma kilka pięter, między nimi prowadzą schody z barierkami, jednak zabrakło w nim windy. Osoby na wózkach inwalidzkich lub osoby którym wejście po schodach sprawia trudność.
+               </a>
+               <script>
+                    function textToAudio3() {
+                         let msg = document.getElementById("messeage3").text;
+                         let speech = new SpeechSynthesisUtterance();
+                         speech.lang = "pl-PL";
+                         
+                         speech.text = msg;
+                         speech.volume = 1;
+                         speech.rate = 1;
+                         speech.pitch = 1;
+                         
+                         window.speechSynthesis.speak(speech);
+                        }
+                    </script>
+                    <button id="start" type="button" onclick="textToAudio3()">Czytaj</button>
+                    <button id="stop"  type="button" onclick="stop()">Stop</button>
+               <a id="messeage4">
+                  <h3>Toalety</h3>  
+                    Toalety w budynku podzielona są na męskie i damskie. Toalety mają wąskie drzwi przez które wózek inwalidzki może przejechać z trudem lub nie będzie to w ogóle możliwe. W samych toaletach jest mało miejsca a poruszanie się tam nie jest komfortowe.
+               </a>
+               <script>
+                    function textToAudio4() {
+                         let msg = document.getElementById("messeage4").text;
+                         let speech = new SpeechSynthesisUtterance();
+                         speech.lang = "pl-PL";
+                         
+                         speech.text = msg;
+                         speech.volume = 1;
+                         speech.rate = 1;
+                         speech.pitch = 1;
+                         
+                         window.speechSynthesis.speak(speech);
+                        }
+                    </script>
+                    <button id="start" type="button" onclick="textToAudio4()">Czytaj</button>
+                    <button id="stop"  type="button" onclick="stop()">Stop</button>
+               <a id="messeage5">
+                   <h3>Progi w drzwiach</h3> 
+                    W niektórych drzwiach w obiekcie występują nieoznaczone progi, które mogą stanowić problem dla osób, którym przemieszczanie się może sprawiać trudność. Oznaczenie tych progów może podnieść poziom bezpieczeństwa.
 
-Ja muszę rozwalić te śmierdzące nory. Nie będę patrzył jak żyją i umierają ci od cynku.
+               </a>
+               <script>
+                    function textToAudio5() {
+                         let msg = document.getElementById("messeage5").text;
+                         let speech = new SpeechSynthesisUtterance();
+                         speech.lang = "pl-PL";
+                         
+                         speech.text = msg;
+                         speech.volume = 1;
+                         speech.rate = 1;
+                         speech.pitch = 1;
+                         
+                         window.speechSynthesis.speak(speech);
+                        }
+                    </script>
+                    <button id="start" type="button" onclick="textToAudio5()">Czytaj</button>
+                    <button id="stop" type="button" onclick="stop()">Stop</button>
+               
+                    
 
-    O Sosnowcu w Ludziach Bezdomnych Stefana Żeromskiego
-
-Sosnowiec to nie Śląsk kurwa! nie jestem kurwa Ślązakiem!
-
-    Reakcja przeciętnego sosnowiczanina, gdy ktoś powie, że jest Ślązakiem
-
-Sosnowiec to nie Śląsk kurwa! tam mieszkają kurwa gorole!
-
-    Reakcja przeciętnego Ślązaka, gdy ktoś powie, że Sosnowiec jest na Śląsku
-
-Co leci w kinie w Sosnowcu? Tynk ze ściany!
-
-    Najpopularniejsza odpowiedź Hanysa, gdy zapyta go ktoś o Sosnowiec
-
-Jakie jest pięć najlepszych rzeczy w Sosnowcu? Pięć losowych autobusów do Katowic.
-
-    Stary żart stara prawda o Sosnowcu
-
-Dlaczego w Katowicach mieszkania od trzeciego piętra wzwyż są tańsze niż reszta? Bo widać z nich Sosnowiec
-
-    Inna stara prawda o tym mieście
-
-Sosnowiec (znany również jako Sosnowieś) – „metropolia” położona na południu Polski na Śląsku w województwie śląskim w Zagłębiu Dąbrowskim, nazywana czasem przez mieszkańców (tego prawdziwego) Śląska „Sosnowsią”.
-
-„Miasto” jedyne w swoim rodzaju, bowiem leży na Wyżynie Śląskiej – a mimo to w Małopolsce, której to historyczną częścią jest Zagłębie, czego najwyraźniej nie potrafią pojąć wszyscy niedokształceni dziennikarze.
-
-Na czele miasta stoi sołtys Arek „Kibol” Chęciński, który po dokonaniu zamachu stanu w roku 2014 przejął władzę nad miastem po niekończącej się (tak by się mogło wydawać) prezydenturze Kazimierza „Blaszaka” Górskiego (nie trenera, tego drugiego, ksywa zasłużona wieloletnim pozyskiwaniem inwestorów na markety osiedlowe) i od tego czasu sukcesywnie rozwija osadę poprzez zastępowanie starych drzew (zwanych tutaj „samosiejkami”) nowymi roślinami doniczkowymi oraz stadionem mieszczącym wszystkich 3000 sosnowieckich kiboli wraz z rodzinami.
-
-Sosnowiec to jedyne „miasto” na nie-Śląsku w pobliżu Śląska lubiane przez warszawiaków (chociaż o Dąbrowie też coś tam słyszeli).
-Spis treści
-
-    1 Atrakcje turystyczne
-    2 Historyczne budowle
-    3 Mieszkańcy
-    4 Sport
-    5 Rozwój miasta
-    6 Cieki wodne
-    7 Rekreacja
-    8 Edukacja
-    9 Znani sosnowiczanie
-    10 Zobacz też
-
-Atrakcje turystyczne
-Niektórzy twierdzą, że z odpowiedniej odległości nawet Sosnowiec ładnie wygląda. To nieprawda
-
-Sosnowiec słynie z wielu różnych rzeczy. Największą chlubą jest oczywiście dworzec kolejowy, wraz z jego stałymi mieszkańcami, stanowiący główną atrakcję turystyczną „miasta”, czy też mieszcząca się w niedalekiej odległości tzw. „Patelnia” – plac pod patronatem Kiepury, będący miejscem spotkań tubylców, czy też pracy dla ulicznych grajków i ulotkarzy. Plac ten śmiało można nazwać tworem otępiającym zmysły każdego architekta do poziomu ameby. To koronny, regionalny przykład eklektyzmu, tj. połączenia różnorakich stylów – od nowoczesnego ni-to-pies-ni-wydra po wiekowe, różnokolorowe kamienice. Część budynków w centrum, zamieszkałych głównie przez społeczność LGBT, została pomalowana na tęczowe kolory, aby każdy mógł czuć się komfortowo. Od popularnej „Patelni”, odchodzą malownicze uliczki oddzielające szeregi szaro-buro-kolorowych kamienic. Przy odrobinie szczęścia można napotkać miejscowych blokersów wychylających się z modrzejowskich bram witających przechodniów toastem, w postaci wina. Uliczki oferują różnorakie usługi – od sex shopów, lumpeksów po ciche knajpki, w których można odpocząć po podnoszących poziom adrenaliny akcjach społecznych typu „Dawaj telefon/pieniądze/cnotę” (zależne od organizatorów). Wokół placu znajduje się wiele przyjemnych barów z kebabem z psa, kota czy też gołębia (w menu widniejące jako – wołowina, baranina, kurczak), hamburgerami bądź innymi tradycyjnymi potrawami miasta. „Patelnia” jest znana na całe Zagłębie Dąbrowskie, a nawet Śląsk i resztę Polski dzięki jedynemu w swoim rodzaju pomnikowi miejscowego śpiewajły Jana Kiepury. Prawie spiżowy Kiepura w pozie Ale mnie krzyż napieprza, muszę się rozciągnąć sam w sobie nie byłby ciekawy, gdyby nie to, że został postawiony stroną zadnią do pobliskiego przystanku autobusowego i ławeczek. Miejscowa młodzież, gdy chce się umówić na spotkanie pod pomnikiem tegoż pana, zwykle używa zwrotu spotkamy się pod Dupą Kiepury, choć niektórzy twierdzą, że to Mickiewicz. Zagłębiowscy geodeci po dziś dzień próbują ustalić, co za pieruński hanys ustawił w ten sposób pomnik – było nie było – jednego z najznamienitszych goroli.
-Historyczne budowle
-Ratusz w Sosnowcu
-Przykład nowego budownictwa w Sosnowcu – można poznać po obecności szyb w oknach
-
-Jak wiemy, Sosnowiec w swej historii miał bardzo wiele ciekawych i użytecznych budowli (to, że 99% z nich już nie istnieje, to inna sprawa).
-
-    Dom Ludowy – budynek, do którego wpychano biedaków i włóczęgi, by wypchać ich jako burżuazję i patrycjat sosnowiecki.
-    Fabryka Sztucznych Nawozów Chemicznych – mega wielki kompleks zakładów produkujących cukier i mączkę kostną (działała ona z taką szybkością jak w Minecrafcie).
-    Interrex – przędzalnia czesankowa, zarządzana przez Megakorporację Interrex od 1882 roku. Przędzalnia, jak i megakorporacja zostały założone przez Franza Schöna (z tych Schönów). Przędzalnia pod koniec XIX wieku zatrudniała ponad 20 tysięcy roboli, pracujących poniżej średniej krajowej na 400 maszynach o mocy 1500 MW. Do I wojny światowej największy zakład na terenie Rosji (w czasie wojny największy w Niemczech i Austrii, po wojnie największy w Polsce).
-    Kościół Świętego Tomasza Apostoła – wielki kościół, z którego widać Będzin i Katowice. Obok niego znajduje się Zespół Szkół Katolickich (w skrócie „Katolik”).
-    Dworzec w Maczkach – największy w Polsce dworzec. Wybudowany w 1848. Najważniejsza stacja na drodze żelaznej kolei Warszawsko-Wiedeńskiej i Iwanogrodzko-Dąbrowskiej. Dworzec ten, mimo tradycji i posiadania starych zabudowań, jest najnowocześniejszym dworcem na świecie. Jedyny w Polsce dworzec, do którego kursują pociągi TGV, pociągi towarowe jak z Kanady i kolej Magnetyczna.
-    Emma – walcownia blachy cynkowej, założona przez Lorda Gustawa von Kramsta. Ogromny zakład, będący jednym z największych w tej części Europy. Założony w 1864, jednak kupiony za bezcen przez żydowskich kapitalistów z Francji. Zakład zatrudniał 500–750 pracowników. Produkcja to około 210 mln pudów blachy. Wyburzona przez Gierka, ponieważ uważał, że produkcja była za mała.
-    Fabryka Chemiczna Radocha – druga pod względem wielkości fabryka chemiczna. Zatrudniała 2000 pracowników i wyrabiała świece do pociągów Pendolino, cerezynę, parafinę, bździnę, chlor do basenu na Żeromskiego, pastylki Nicorette, cukier ołowiowy (dla żołnierzy) i sałatę. Obecnie nie istnieje.
-    Huta Milowice – na początku jedna z największych walcowni odlewów żelaznych, założona w 1883, z czasem przerodziła się w Hutę Aleksander, Zatrudniająca 5 tys. robotników, 30 inżynierów i 50 majstrów. Produkowała żelazo, bloki żelaza, sztabki żelaza, żelazka, stal, szyny kolejowe, elementy pociągu Tomka, nitki, śrubki, siekiery, motyki, młotki, kilofy diamentowe i wallhacki. Obecnie nazywa się Fabryki Butelek Mineta S.A.
-    Kopalnia Ignacy – ogromna kopalnia, założona przez Lorda von Kramsta. Średnie wydobycie wynosiło 502,6 mln ton węgla. Wydobycie w kopalni zakończono w 1998 (czyli wtedy, kiedy u władzy ponownie był zły Leszek Balcerowicz).
-    Kościół Św. Joachima – kościół jak to kościół. Katedra jest większa.
-    Sosnowiecka Kotlarnia Wyrobów Miedzianych i Metalowych Ludwik Piątkowski – zakład z długą nazwą i długimi zaległościami w wypłacaniu pensji.
-    Teatr Sosnowiecki – teatr działający od 1912 (bez budynku) lub 1919 (z budynkiem).
-    Amfiteatr Sosnowiecki – dziś już nieistniejący obiekt. Największa inwestycja PRL-u. Zbudowany w 1964 zgromadził wszystkich członków PZPR ze wszystkich miast (oprócz Katowic). Wrogowie Polski i hanysi co prawda twierdzą, że scena nie była zadaszona, jednak na archiwalnych zdjęciach planów budowy można ją zobaczyć, więc wszystkie te informacje to ewidentne kłamstwa!
-    Elektrownia Sosnowiecka – elektrownia zbudowana w 1909 roku. Do 1911 wytwarzała prąd o mocy 450 MW. Pierwsza elektrownia w Zagłębiu. Obecnie sprywatyzowana przez Będzin S.A.
-    Fabryka Chemiczna Gździchów aka Bździchów – wybudowana w 1883. Zatrudniała 7000 robotników i mieściła się przy ulicy Chemicznej 69.
-    Gimnazjum Przemysłu Autystycznego – gimnazjum założone w 1936. Wbrew nazwie nie uczęszczały do niego dzieci z autyzmem tylko z talentem artystycznym.
-    Zakłady Henrykowskie – zakłady znajdujące się w kolonii Henryków, zarządzane przez Wielki Kombinat Hutniczy Henryka Lubieńskiego.
-    Kościół Ewangelicko-Augsburski – kościół protestancki, kiedyś jedyny przejaw kultu protestanckiego, obecnie ruina widoczna jedynie przejeżdżającym tędy pasażerom tramwajów linii 21, 24 i 27.
-    Budynek Zakładów Mięsnych Duda na ulicy Naftowej – budynek działający od lat 90 do około 2010, odbudowany i zmodernizowany po wyborze prezesa firmy na Prezydenta Polski. Niegdyś wielki budynek z garażem, w którym mieszkańcy ulicy Naftowej mogli kupować wyroby mięsne.
-    Muzeum Szkła Współczesnego – muzeum szkła współczesnego. Po prostu nic ciekawego.
-    Kopalnia Niwka-Modrzejów – jedna z większych kopalni na świecie, zatrudniała 11,8 tys robotników. Wydobyto tutaj około 4,43 mln ton węgla.
-    Pomnik Czynu Rewolucyjnego – takie wielkie rury. W założeniu podczas podmuchu wiatru miały wydawać specyficzny dźwięk. W 1990 okazało się, że tym dźwiękiem jest dźwięk demontażu pomnika.
-    Rurkownia Huldczyńskiego – zakład produkujący rury.
-    Kopalna Wiktor – mała kopalnia, założona w 1822, zatrudniająca 666 robotników.
-
-Mieszkańcy
-
-Sosnowiec jest najludniejszym „miastem” Zagłębia Dąbrowskiego, co jest skutkiem ciągłej ekspansji mieszkańców miast ościennych (w tym także Ślązaków) szukających lepszego życia. Sosnowiczanie wolny czas spędzają na klatkach schodowych, popijając regionalne wino lub wódkę własnej produkcji, paląc skręty z zieleniny własnego chowu i rozmawiając o codziennych problemach przy kojącym uszy polskim rapie. Ta forma tradycyjnego relaksu sprawia, iż mieszkańcy są jednymi z najmilszych w całym kraju – często pytają się „czy masz jakiś problem??!”, pozbawiają przechodniów zbędnego im bagażu, a czasem wymasują kijem bejsbolowym bolące miejsca na ciele. To jest przykład na to, że Sosnowiec jest jednym z najlepszych spa w Europie.
-
-Lokalni przedstawiciele subkultur to głównie hiphopowcy, SSCT (samochodowi słuchacze ciężkiego techno), fani Rubika (naśladujący go nawet wyglądem) i szalone, smutne emo…
-
-Zdarzają się patologie w postaci młodzieży nienależącej do żadnej z wcześniej wymienionych subkultur, ale są to skrajne przypadki. Natomiast prawdziwą skazą na honorze miasta są rozliczne gangi wykształciuchów, grasujące pod Boską Estakadą Prosto Z Niebios Na Ziemię, a składające się z ludzi uczęszczających do elitarnych liceów.
-
-Humor Sosnowiczan skupia się głównie na śmiechu z sąsiadów. Z czego śmieje się sosnowiczanin? Z dworca w sąsiedniej Czeladzi, z zamku, Schaberplatzu i nerki w Będzinie, dworca PKP w Dąbrowie Górniczej i naturalnie z Katowic i Hanysów.
-Sport
-
-Ulubionym sportem mieszkańców Sosnowca jest oczywiście piłka nożna, podryw na „3 paski na dresie”, bieg po piwo i masowa gonitwa za kimkolwiek kto zamiast „tak” mówi „ja” lub „dyć”. Paradoksem jest fakt, że stadion najbardziej „gorolskiego” klubu sportowego w Polsce – Zagłębie Sosnowiec znajduje się po drugiej stronie rzeki Brynica, czyli za granicą (czytaj: na Śląsku). Sosnowiecka drużyna piłkarska od niepamiętnych lat grzała pierwsze miejsca w Ekstraklapie, co budziło wielką zawiść wśród nieudolnych Hanysów. Do ulubionych sportów mieszkańców miasta można także zaliczyć siatkówkę, najlepszymi zawodniczkami są oczywiście panie z klubu AKS Niwka-Modrzejów. Dziennie w siatkach potrafią przenosić kilkaset ton.
-Rozwój miasta
-Wbrew pogłoskom, ulice w Sosnowcu są zaasfaltowane. Obie!
-
-Sosnowiec jest „miastem” poważnych inwestycji, „miasto” rozwija się bardzo prężnie, że nawet Nju Jork wymięka. Wszystko to za sprawą polityki prowadzonej przez wspaniałomyślnych włodarzy „miasta”, ze wspaniałym prezydentem – Arkadiuszem Chęcińskim na czele. Mieszkańcy mogą cieszyć się coraz to nowszymi atrakcjami, które zapewnia im „miasto”, ostatnio otwarto trzeci już bar McDonald's. Po wsi jeżdżą super-nowoczesne i bezszelestne tramwaje typu Konstal 105Na. Niestety są też czarne owce komunikacji w postaci sprowadzonych z Austrii (co daje już wiele do myślenia) przegubowców typu E1, które burzą ład estetyczny (i co chwila się wykolejają). Co weekend funkcjonuje giełda elektroniczna na Milowicach, gdzie możesz odkupić po promocyjnej cenie swój skradziony przed tygodniem telefon. Grzechem byłoby nie wspomnieć o Centrum Targowo Konferencyjnym (i przynajmniej nie chodzi tu o tzw. „hale” przy ul. Dekerta) o wdzięcznej (i jakże adekwatnej) nazwie „Expo Silesia”.
-
-Kwestia nazewnictwa niektórych obiektów zawsze zmuszała do refleksji, bowiem tylko tu na plac w ścisłym centrum wsi mówi się „Patelnia”, na estakadę „Ślimak” a na pewną dzielnicę „Jęzor”; chodzą nawet pogłoski, że każda dzielnica ma przypisaną jakąś część ciała, mieszkańcy pozostałych dzielnic aż drżą na myśl, że to oni mogą mieszkać w dupie.
-Cieki wodne
-
-Celowo nie zostało użyte w tytule słowo „rzeki” – ubliżyłoby to wiejskiej chlubie i dumie. Zresztą w Sosnowsi nie ma rzek. Cieki Sosnowca należą do jednych z najbardziej aromatycznych w kraju, są miejscem pielgrzymek wszelakiej maści koneserów różnorodnych zapachów. Sekretem tego sukcesu są mieszkańcy, pracowicie wrzucający do cieków wszystko co im akurat niepotrzebne. Są to najczystsze rzeki w Polsce – już dawno wyginęły tam bowiem wszelkie bakterie. Najpiękniejszy z miejskich zbiorników – Stawiki są uroczym miejscu na letni wypoczynek nad wodą, która jest tak mętna i gęsta, że można próbować po niej chodzić! Na Stawikach odbywają się również sławne na cały region regaty szkolne Staszic-Plater.
-Rekreacja
-
-Trudno pisać o czymś, czego właściwie nie ma… są jakieś ścieżki rowerowe, których ilość pozwala chociaż na dojazd po bułki do pobliskiego hipermarketu. Mieszkańcy Sosnowca wolny czas w długie letnie dni spędzają w Dąbrowie Górniczej, gdzie plażę na Pogorii można nazwać plażą, a ścieżki – prawdziwymi ścieżkami. Oczywiście są jeszcze wspaniałe Stawiki, lecz zostają one jedynie dla amatorów błotnych kąpieli.
-Edukacja
-Postawienie jednego nowego budynku przez Uniwersytet Śląski pozwoliło zwiększyć wartość miasta ponad dwukrotnie
-
-Z powodu rosnącego zapotrzebowania otwiera się coraz więcej szkół specjalnych. Najsławniejsze w Polsce są trzy licea – II LO im. Emilii Plater, VI LO im. Janusza Korczaka oraz najlepsze – IV LO im. Stanisława Staszica – najlepsze dlatego, że posiada jeszcze gimnazjum żłobek dwujęzyczny. Mniej znane to: Rozdzień, Katolik czy też tzw. Prusik. Poza resztą szkół przeznaczonych dla grubych nastolatków chcących smażyć kotlety w gastronomiku i dzieci bananowych uczęszczających do prywatnych szkół, jest jedna elitarna szkoła – Zespół Szkół Elektronicznych i Informatycznych (czytaj Elektronik) w której poza ogólnym „rozgejeniem” osobników płci męskiej można napotkać paszczury, krzyworyje płci niewiadomej. W Elektroniku kształcą i uzdatniają postrzeganie świata jako rezystory i cycki.
-Znani sosnowiczanie
-Kiepura po raz kolejny próbuje wyrwać się z Sosnowca
-
-Czyli ludzie sukcesu rodem z Sosnowca:
-
-    Edward Gierek – polityk, jak przystało na prawdziwego sosnowiczanina, który objął ster u władzy – zadłużył wszystko i zwinął zabawki.
-    Jan Kiepura – śpiewak, tenor. Pierwszy Polak, który odniósł sukces w USA.
-    Władysław Kiepura – mniej sławny braciszek, nie płacił podatków za dom w Sosnowcu i umarł na Florydzie.
-    Krzysztof Materna – satyryk.
-    Stanisław Gruszczyński – jakiś śpiewak, podobno Jan Kiepura był jego padawanem.
-    Jerzy Jaros – warszawiak, który stał się sosnowiczaninem, historyk.
-    Aleksy Bień – komuch, poseł, premier, członek PPS.
-    Jacek Cygan – pierwszy polski cygan, który pracuje.
-    Władysław Szpilman – pianista, bohater wojenny.
-    Jacek Majchrowski – król Krakowa.
-    Wojciech Basiura – kucharz, juror w polsatowskim Top Chefie, kiedyś krzyczał o łososiach w Piekielnej Kuchni.
-    Katarzyna Waśniewska – najpopularniejsza opiekunka dziecięca, następczyni Doroty „SuperNiani” Zawadzkiej.
-    Trybson – celebryta.
-    Przemysław Pająk – redaktor naczelny Spamers' Web.
-
-Wszyscy zachodzą w głowę i zadają sobie to nurtujące pytanie – jak udało im się odnieść sukces? Wystarczyło jedynie wyjechać ze wsi.
-Zobacz też
-</a>
+           </section>
        </section>
 
        <section id="shortcut">
@@ -244,7 +259,10 @@ Zobacz też
                <a>Klawisz: 0 - Powrót</a><br/>
                
       </section>
-
+     </section>
+     <section id="google-maps">
+          <h3>Mapa Google</h3>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d636.1516097461483!2d19.234017129290546!3d50.373892654039615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4716d853100eebbf%3A0x688c1bd85fe88933!2sSpacerowa%204%2C%2042-520%20D%C4%85browa%20G%C3%B3rnicza!5e0!3m2!1spl!2spl!4v1643534176110!5m2!1spl!2spl" width="400" height="425" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
      </section>
        <footer id="footer">
             Created by<br/>

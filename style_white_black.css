@@ -5,7 +5,7 @@ h1,h2,a,p{
     color:black;
 }
 header,section,aside,footer,nav{
-    color:black;
+    color:black
 }
 #main
 {
@@ -19,6 +19,7 @@ header,section,aside,footer,nav{
     border:solid;
     margin-top:5px;
     margin-bottom:5px;
+ 
 }
 #tool_text
 {
@@ -35,26 +36,6 @@ header,section,aside,footer,nav{
     text-align: center;
     margin:5px;
 }
-#build
-{
-    margin-top:5px;
-    margin-bottom:5px;
-    margin-left:5%;
-    width:65%;
-    height:50%;
-    border:solid; 
-}
-
-#shortcut
-{
-    margin-top:5px;
-    margin-bottom:5px;
-    margin-left:1%;
-    width:10%;
-    height:20%;
-    border:solid; 
-}
-
 header
 {
     width:100%;
@@ -70,4 +51,51 @@ footer
     border:solid;
     margin:auto;
     text-align: center;
+}
+#build
+{
+    margin-top:5px;
+    margin-bottom:5px;
+    margin-left:2%;
+    width:65%;
+    height:50%;
+    border:solid; 
+}
+
+#shortcut
+{
+    margin-top:5px;
+    margin-bottom:5px;
+    margin-left:2%;
+    width:10%;
+    height:20%;
+    border:solid; 
+}
+#image-box
+{
+    margin-top: 1%;
+    text-align:center;
+    text-justify:auto;
+}
+#texts
+{
+    margin-left:10px;
+    margin-bottom:10px;
+}
+#stop
+{
+    color:red;
+}
+#start
+{
+    color:green;
+}
+#google-maps
+{
+    margin-left:40%;
+    margin-bottom:1%;
+    width:500px;
+    text-align: center;
+    border:solid;
+
 }
