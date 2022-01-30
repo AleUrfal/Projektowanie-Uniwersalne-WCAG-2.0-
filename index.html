@@ -99,7 +99,7 @@
        </section>
        <section id="build">
                <section id="image-box">
-               <img id="myImg" src="img.png" width="300" height="300" alt="Zdjęcie przedstawia budynek Świetlicy Ogólnodostępnej w Dąbrowie Górniczej z wejściem osobowym"></br>
+               <img id="myImg" src="img.png" width="50%" height="50%" alt="Zdjęcie przedstawia budynek Świetlicy Ogólnodostępnej w Dąbrowie Górniczej z wejściem osobowym"></br>
                <a id="describe">Budynek świetlicy ogólnodostępnej w <br/>Dąbrowie Górniczej</a><br/>
                <script>
                     function textToAudio6() {
@@ -147,7 +147,7 @@
      
                </a>
                <script>
-                    function textToAudio() {
+                    function textToAudio1() {
                          let msg = document.getElementById("messeage1").text;
                          let speech = new SpeechSynthesisUtterance();
                          speech.lang = "pl-PL";
@@ -160,7 +160,7 @@
                          window.speechSynthesis.speak(speech);
                         }
                     </script>
-                    <button id="start" type="button" onclick="textToAudio()">Czytaj</button>
+                    <button id="start" type="button" onclick="textToAudio1()">Czytaj</button>
                     <button id="stop" type="button" onclick="stop()">Stop</button>
                <a id="messeage2">
                     <h3>Druga cześć terenu świetlicy</h3>  
