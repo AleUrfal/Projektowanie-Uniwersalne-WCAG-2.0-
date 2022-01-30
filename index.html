@@ -41,13 +41,17 @@
                          location.hash = "main";
                          }
                          else if (e.which == 51) {
-                         alert("Przeniesiono do Stopki");
-                         location.hash = "footer";
+                         alert("Przeniesiono do Mapy");
+                         location.hash = "google-maps";
                          }
                          else if (e.which == 52) {
                               var msg = new SpeechSynthesisUtterance();
                                  msg.text = "Dzień dobry";
                                  window.speechSynthesis.speak(msg);
+                         }
+                         else if (e.which == 53) {
+                         alert("Przeniesiono do Stopki");
+                         location.hash = "footer";
                          }
                          else if (e.which == 48) {
                          alert("Powrót");
@@ -254,8 +258,9 @@
           <a>Skróty klawiszowe:<br/> </a>
                <a>Klawisz: 1 - Toolbox</a><br/>
                <a>Klawisz: 2 - Opis budynku</a><br/>
-               <a>Klawisz: 3 - Stopka</a><br/>
+               <a>Klawisz: 3 - Mapa</a><br/>
                <a>Klawisz: 4 - Czytanie</a><br/>
+               <a>Klawisz: 5 - Stopka</a>
                <a>Klawisz: 0 - Powrót</a><br/>
                
       </section>
